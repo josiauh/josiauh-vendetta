@@ -16,7 +16,7 @@ let happyCmd: ApplicationCommand = {
     inputType: ApplicationCommandInputType.BOT,
     options: [msgInput],
     execute: (args, ctx) => {
-        sendMessage(ctx.channel.id, args[0] + "\\(^v^)/")
+        sendMessage(ctx.channel.id, args[0].value + "\\(^v^)/")
     },
 }
 //#endregion
