@@ -3,6 +3,7 @@ const { FormText } = Forms;
 
 export default () => (
     <FormText>
-        Adds commands to discord!
+        Adds more commands to discord!
+        Based on the uwuify plugin by ECHO, big thanks to them!
     </FormText>
 )
