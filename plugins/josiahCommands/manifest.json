@@ -1,0 +1,14 @@
+{
+    "name": "Josiah Commands",
+    "description": "Add more commands!",
+    "authors": [
+        {
+            "name": "freesmart",
+            "id": "853014693115068426"
+        }
+    ],
+    "main": "src/index.ts",
+    "vendetta": {
+        "icon": "ic_badge_staff"
+    }
+}
