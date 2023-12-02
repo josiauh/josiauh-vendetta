@@ -1,6 +1,7 @@
 import { commands } from "@vendetta";
 import { findByProps } from "@vendetta/metro";
 import Settings from "./Settings";
+import { msgInput } from "josiahvendetta";
 
 // based on the uwuify plugin by ECHO, big thanks to them!
 const MessageActions = findByProps("sendMessage", "receiveMessage");
@@ -67,9 +68,6 @@ function good(message: string): string {
     return answer;
 }
 
-
-
-
 let patches = [];
 
 export default {
@@ -97,23 +95,6 @@ export default {
                
                 MessageActions.sendMessage(ctx.channel.id, {
                     content: good(args[0].value)
-                })
-            }
-        }));
-        patches.push(commands.registerCommand({
-            name: "serverInfo",
-            displayName: "serverInfo",
-            description: "sends the server info into chat",
-            displayDescription: "sends the server info into chat",
-            // @ts-ignore
-            applicationId: -1,
-            inputType: 1,
-            type: 1,
-        
-            execute: (args, ctx) => {
-               
-                MessageActions.sendMessage(ctx.channel.id, {
-                    content: `${ctx.guild.name}`
                 })
             }
         }));
