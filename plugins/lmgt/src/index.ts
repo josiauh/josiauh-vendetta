@@ -1,6 +1,6 @@
 import { logger, commands } from "@vendetta";
 import { findByProps } from "@vendetta/metro";
-const MessageActions = findByProps("sendMessage", "receiveMessage");
+const MessageActions = findByProps("sendMessage", "receiveMessage", "sendBotMessage");
 let ps = []
 export default {
     onLoad: () => {
@@ -19,6 +19,14 @@ export default {
                     type: 3,
                     description: "The search",
                     displayDescription: "The search"
+                },
+                {
+                    name: "hidden",
+                    displayName: "hidden",
+                    required: false,
+                    type: ApplicationCommandOptionType.BOOLEAN,
+                    description: "Send as a bot, true/false only",
+                    displayDescription: "Send as a bot, true/false only"
                 }
             ],
             inputType: 1,
@@ -26,9 +34,15 @@ export default {
             //@ts-ignore
             applicationId: -1,
             execute: (args, ctx) => {
-                MessageActions.sendMessage(ctx.channel.id, {
-                    content: `https://letmegooglethat.com/?q=${args[0].value.split(" ").join("+")}`
-                })
+                if (args[1] == "true") {
+                    MessageActions.sendBotMessage(ctx.channel.id, {
+                        content: `https://letmegooglethat.com/?q=${args[0].value.split(" ").join("+")}`
+                    })
+                } else {
+                    MessageActions.sendMessage(ctx.channel.id, {
+                        content: `https://letmegooglethat.com/?q=${args[0].value.split(" ").join("+")}`
+                    })
+                }
             },
         }))
     },
